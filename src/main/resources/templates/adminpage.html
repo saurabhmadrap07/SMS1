@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page - Student Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background: #1EBD4D;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #105CCE;
+        }
+
+        .logout-btn {
+            font-weight: bolder;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .logout-btn:hover {
+            color: #105CCE;
+        }
+
+        .bt1 {
+            width: 100px;
+            background: none;
+            border: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 5rem;
+            width: 80%;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #1EBD4D;
+            color: #fff;
+        }
+
+        #main {
+            text-align: center;
+            margin: 50px;
+            background: #1EBD4D;
+            color: #fff;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <form action="/addcourse" method="get">
+            <button type="submit" class="logout-btn bt1">Add Course</button>
+        </form>
+        <form action="/allcourses" method="get">
+            <button type="submit" class="logout-btn bt1">List Courses</button>
+        </form>
+        <form action="/instructor" method="get">
+            <button type="submit" class="logout-btn bt1" style="width: 120px;">Add Instructor</button>
+        </form>
+		<!--<form action="/home" method="get">
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>-->
+
+        <form id="logoutForm">
+            <button type="button" class="logout-btn" onclick="logout()">Logout</button>
+        </form>
+    </div>
+
+    <div id="main">
+        <h1>Welcome to Admin Page</h1>
+    </div>
+    <script>
+        function logout() {
+            // Perform logout action (e.g., clear session, tokens, etc.)
+            // Simulating logout by clearing localStorage
+            localStorage.clear();
+
+            // Redirect to home page after logout
+            window.location.href = "/";
+
+            // Prevent going back to the instructor page after logout
+            history.replaceState(null, null, '/');
+        }
+    </script>
+</body>
+
+</html>
